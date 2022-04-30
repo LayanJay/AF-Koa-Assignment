@@ -1,6 +1,7 @@
 import Router from '@koa/router'
 import {
   createCart,
+  deleteCart,
   getAllCarts,
   getCart,
   updateCart,
@@ -34,6 +35,13 @@ cartsRouter.get('/', (ctx) => {
 cartsRouter.patch('/:id', (ctx) => {
   const id = ctx.params.id
   ctx.body = updateCart(id, ctx.request.body)
+  ctx.set('Content-Type', 'application.json')
+  ctx.status = 200
+})
+
+cartsRouter.delete('/:id', (ctx) => {
+  const id = ctx.params.id
+  ctx.body = deleteCart(id)
   ctx.set('Content-Type', 'application.json')
   ctx.status = 200
 })

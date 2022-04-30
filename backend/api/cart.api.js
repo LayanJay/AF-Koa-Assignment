@@ -36,3 +36,8 @@ export const updateCart = (id, { customer, items }) => {
   carts.set(cart.id, cart)
   return cart
 }
+
+export const deleteCart = (id) => {
+  carts.delete(id)
+  return true
+}
